@@ -1,0 +1,80 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <form name="userForm" ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2><span>{{user.firstName}}</span> <span>{{user.lastName}}</span></h2>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-content class="md-padding col-lg-12">
+                    <md-card>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">Edit Account</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <form>
+                                <div layout="row">
+                                    <md-input-container>
+                                        <label>First Name</label>
+                                        <input type="text" ng-model="user.firstName">
+                                    </md-input-container>
+
+                                    <md-input-container>
+                                        <label>Last Name</label>
+                                        <input type="text"  ng-model="user.lastName">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row">
+                                    <md-input-container>
+                                        <label>New Password</label>
+                                        <input type="password" name="password" pattern=".{4,20}" ng-model="user.password" ng-required="true">
+                                        <div ng-messages="userForm.password.$error" role="alert" class="form-errors first-name-error">
+                                            <div ng-message="required">Password is required.</div>
+                                            <div ng-message="pattern">password must be between 4 and 20 characters</div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container>
+                                        <label>Confirm New Password</label>
+                                        <input type="password" name="confirmPassword" pattern="{{user.password}}"  ng-model="user.confirmPassword" ng-required="true" >
+                                        <div ng-messages="userForm.confirmPassword.$error" role="alert" class="form-errors first-name-error">
+                                            <div ng-message="required">Password is required.</div>
+                                            <div ng-message="pattern">Passwords do not match</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div layout="row">
+                                    <md-input-container>
+                                        <label>Phone</label>
+                                        <input type="text" ng-model="user.phone">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row">
+                                    <md-input-container>
+                                        <label>Address</label>
+                                        <textarea type="text" ng-model="user.address"></textarea>
+                                    </md-input-container>
+                                </div>
+                            </form>
+                        </md-card-content>
+                    </md-card>
+
+                </md-content>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button class="md-raised" ng-click="cancel()">
+                Cancel
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="answer(user)" ng-disabled="userForm.$invalid">
+                Edit
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

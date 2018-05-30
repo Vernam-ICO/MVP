@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="AppController">
+<head>
+    <!--meta tag start-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--title-->
+    <title>Edustar-Educational html5 template</title>
+
+    <!-- faveicon start   -->
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+    <!-- stylesheet start -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+    <header ng-include="'templates/partials/header.html'"></header>
+
+    <div ng-view>
+    </div>
+    <!-- Stat Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="footer-widget">
+                        <h2>Edustar</h2>
+                        <div class="widget-content">
+                            <div class="text">Lorem ipsum dolor sit amet, consects adipiscing elit enean commodo ligula.</div>
+                            <address>
+                                <p><i class="fa fa-map-marker"></i> kathmandu, nepal</p>
+                                <p><i class="fa fa-phone"></i>+977-9856055360</p>
+                                <p><i class="fa fa-envelope"></i> khnl.prem@gmail.com</p>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5 col-sm-6 col-xs-12">
+                    <div class="footer-widget links-widget">
+                        <h2>Explore</h2>
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-sm-12">
+                                <ul>
+                                    <li><a href="#">home</a></li>
+                                    <li><a href="#">about</a></li>
+                                    <li><a href="#">services</a></li>
+                                    <li><a href="#">projects</a></li>
+                                    <li><a href="#">contact</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-sm-12">
+                                <ul>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Trade</a></li>
+                                    <li><a href="#">Investment</a></li>
+                                    <li><a href="#">projects</a></li>
+                                    <li><a href="#">contact</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="footer-widget subscribe-widget">
+                        <h2>Newsletter</h2>
+                        <div class="widget-content">
+                            <div class="text">Lorem ipsum dolor sit amet, adipiscing </div>
+                            <div class="newsletter-form">
+                                <form>
+                                    <div class="form-group">
+                                        <input type="email" name="email" value="" placeholder="Email Address..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary button">suscribe now<span class="btn-shape"></span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!--Footer Bottom-->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="text text-left">Copyrights &copy; <a href="#">Khanalprem</a>. All Rights Reserved</div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <ul class="social-links text-right">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li class="active"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- scroll top -->
+    <a class="scroll-top fa fa-angle-up" href="javascript:void(0)"></a>
+    <!-- srolltop end -->
+    <!-- Load app libraries -->
+    <script src='js/jquery-3.2.1.min.js'></script>
+    <script src='js/bootstrap.min.js'></script>
+    <script src='js/owl.carousel.min.js'></script>
+    <script src='js/isotope.pkgd.min.js'></script>
+    <script src='js/jquery.fancybox.min.js'></script>
+    <script src='js/jquery.counterup.min.js'></script>
+    <script src='js/waypoints.min.js'></script>
+    <script src='js/jquery.magnific-popup.min.js'></script>
+    <!--<script src='js/countdown.js'></script>-->
+    <script src='js/wow.min.js'></script>
+    <!--<script src='js/script.js'></script>-->
+
+    <script src="js/angular/angular.js"></script>
+    <script src="js/angular/angular-route.js"></script>
+    <script src="js/angular/angular-resource.js"></script>
+
+    <!-- Load app source code: main script, services, controllers, etc. -->
+    <script src="angular_js/app.js"></script>
+    <script src="angular_js/services/authService.js"></script>
+    <script src="angular_js/services/userService.js"></script>
+    <script src="angular_js/services/admin/sliderService.js"></script>
+    <script src="angular_js/services/notifyService.js"></script>
+
+    <script src="angular_js/controllers/AppController.js"></script>
+    <script src="angular_js/controllers/HomeController.js"></script>
+    <script src="angular_js/controllers/LoginController.js"></script>
+    <script src="angular_js/controllers/RegisterController.js"></script>
+    <script src="angular_js/controllers/admin/SliderController.js"></script>
+    <script type="text/javascript-lazy">
+         loadjscssfile("js/countdown.js", "js");
+    </script>
+    <script type="text/javascript-lazy">
+         loadjscssfile("js/script.js", "js");
+    </script>
+   <!-- <script type="text/javascript-lazy">
+         loadjscssfile("js/countdown.js", "js");
+    </script>
+    <script type="text/javascript-lazy">
+         loadjscssfile("js/countdown.js", "js");
+    </script>
+    <script type="text/javascript-lazy">
+         loadjscssfile("js/countdown.js", "js");
+    </script>-->
+</body>
+
+</html>

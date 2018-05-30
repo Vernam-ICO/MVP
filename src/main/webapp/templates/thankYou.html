@@ -1,0 +1,57 @@
+<div ng-include="'templates/partials/banner.html'"></div>
+    <section class="blog-page inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="blog-details-inner clear">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="blog-div blog-details-div">
+                            <div class="blog-desc blog-detais-desc">
+                                <blockquote>{{message}}
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <article class="row">
+                        <div class="form-group">
+                            <div ng-if="authService.isLoggedIn()" class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="pull-left">
+                                    <a href="#/user-wallet" ui-sref="form.interests"
+                                       class="btn btn-block btn-info">
+                                        <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                                        My VRN Wallet
+                                    </a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#!/purchase-history" ui-sref="form.interests"
+                                       class="btn btn-block btn-info">
+                                        Purchase History <span
+                                            class="glyphicon glyphicon-circle-arrow-right"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="authService.isAnonymous()" class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="pull-left">
+                                    <a href="#/" ui-sref="form.interests"
+                                       class="btn btn-block btn-info">
+                                        <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                                        Main Menu
+                                    </a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#!/login" ui-sref="form.interests"
+                                       class="btn btn-block btn-info">
+                                        Login <span
+                                            class="glyphicon glyphicon-circle-arrow-right"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+

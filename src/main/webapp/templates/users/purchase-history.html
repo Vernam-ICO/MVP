@@ -1,0 +1,56 @@
+<div ng-include="'templates/partials/banner.html'"></div>
+<div class="container">
+    <div class="curriculum-table teacher-course-table">
+        <div class="title inner-page-title">
+            <h3>PURCHASE HISTORY</h3>
+            <h3>BALANCE : {{user.tokens}} VRN Tokens</h3>
+        </div>
+        <div class="table-responsive">
+            <table class="table-responsive">
+                <tbody>
+                <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Policy</th>
+                    <th>Expiration date</th>
+                    <th>Renew</th>
+                </tr>
+                <tr ng-repeat="entry in data">
+                    <td><span>{{$index + 1}}</span></td>
+                    <td><span>{{entry.date | limitTo: 16}}</span></td>
+                    <td>
+                    <span>
+                    <button ng-click="viewPolicy(entry.policyId)">View</button>
+                    </span>
+                    </td>
+                    <td><span>{{entry.expirationDate | limitTo: 16}}</span></td>
+                    <td><span><button ng-click="renew(entry.policyId)" disabled=>Renew</button></span></td>
+                </tr>
+                </tbody>
+            </table>
+            <ul class="pagination">
+                <li><a><span>Previous</span></a></li>
+                <li><a><span>Next</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:768px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Policy</h4>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center;" id="modal-goes-here">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

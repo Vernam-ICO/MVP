@@ -1,0 +1,51 @@
+<div ng-include="'templates/partials/banner.html'"></div>
+<section class="contact-page inner-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="title inner-page-title">
+                    <h3>Contact info</h3>
+                </div>
+                <div class="contact-info">
+                    <p><i class="fa fa-phone"></i>+359 24 72 2633</p>
+                    <p><i class="fa fa-envelope"></i>contact@vernam.com</p>
+                    <p><i class="fa fa-map-marker"> </i>Sofia , Bulgaria</p>
+                    <p><i class="fa fa-clock-o"></i>Mon - Fri: 8:30 am - 5:00 pm </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="title inner-page-title">
+                    <h3>Leave Comment</h3>
+                </div>
+                <form>
+                    <div class="row">
+                        <div class="col-sm-6 ">
+                            <div class="form-group">
+                                <label>Name :</label>
+                                <input type="text" name="name" class="form-control" placeholder="name" ng-model="comment.name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Email :</label>
+                                <input type="text" name="email" class="form-control" placeholder="email" ng-model="comment.email">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Message :</label>
+                                <textarea rows="6" name="message" class="form-control" ng-model="comment.message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <a class="btn btn-primary" href="#" ng-click="sendMail(comment)">Send Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="contact-map">
+        <iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=1618%2C%20ul.%20%22Okolovrasten%20pat%22%203%2C%20+(Vernam)&amp;ie=UTF8&amp;t=&amp;z=16&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+</section>

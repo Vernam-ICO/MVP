@@ -1,0 +1,90 @@
+<div ng-include="'templates/partials/banner.html'"></div>
+<div class="container">
+    <div class="curriculum-table teacher-course-table">
+        <div ng-cloak>
+            <h1 class="md-display-2">User Information</h1>
+            <md-content>
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="View">
+                        <md-content class="md-padding">
+                            <div class="title inner-page-title">
+                                <h3>Basic Info:</h3>
+                                <div>
+                                    <p>First name: {{user.firstName}}</p>
+                                    <p>Surname: {{user.lastName}}</p>
+                                </div>
+                            </div>
+                            <div class="title inner-page-title">
+                                <h3>Additional Info:</h3>
+                                <p>Phone: {{user.phone}}</p>
+                                <p>Address: {{user.address}}</p>
+                                <p>BALANCE : {{user.tokens}} VRN Tokens</p>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Edit">
+                        <md-content class="md-padding col-lg-6">
+                            <md-card>
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline">Edit Account</span>
+                                    </md-card-title-text>
+                                </md-card-title>
+                                <md-card-content>
+                                    <form name="userForm">
+                                        <div layout="row">
+                                            <md-input-container>
+                                                <label>First Name</label>
+                                                <input type="text" ng-model="user.firstName">
+                                            </md-input-container>
+
+                                            <md-input-container>
+                                                <label>Last Name</label>
+                                                <input type="text"  ng-model="user.lastName">
+                                            </md-input-container>
+                                        </div>
+                                        <div layout="row">
+                                            <md-input-container>
+                                                <label>Password</label>
+                                                <input type="password" name="password" pattern=".{4,20}" ng-model="user.password" ng-required="true">
+                                                <div ng-messages="userForm.password.$error" role="alert" class="form-errors first-name-error">
+                                                    <div ng-message="required">Password is required.</div>
+                                                    <div ng-message="pattern">password must be between 4 and 20 characters</div>
+                                                </div>
+                                            </md-input-container>
+
+                                            <md-input-container>
+                                                <label>Confirm Password</label>
+                                                <input type="password" name="confirmPassword" pattern="{{user.password}}"  ng-model="user.confirmPassword" ng-required="true" >
+                                                <div ng-messages="userForm.confirmPassword.$error" role="alert" class="form-errors first-name-error">
+                                                    <div ng-message="required">Password is required.</div>
+                                                    <div ng-message="pattern">Passwords do not match</div>
+                                                </div>
+                                            </md-input-container>
+                                        </div>
+                                        <div layout="row">
+                                            <md-input-container>
+                                                <label>Phone</label>
+                                                <input type="text" ng-model="user.phone">
+                                            </md-input-container>
+                                        </div>
+                                        <div layout="row">
+                                            <md-input-container>
+                                                <label>Address</label>
+                                                <textarea type="text" ng-model="user.address"></textarea>
+                                            </md-input-container>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <button type="submit" class="login-btn btn-default btn" ng-click="edit(user)" ng-disabled="userForm.$invalid">Edit</button>
+                                        </div>
+                                    </form>
+                                </md-card-content>
+                            </md-card>
+
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,733 @@
+<div ng-include="'templates/partials/banner.html'"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="course-details-page-div">
+                <div class="course-dtails-page-img">
+                    <img ng-src="images/white.jpg" class="img-responsive"
+                         style="background-image: url('https://mdbootstrap.com/img/Photos/Slides/img%20(134).jpg');"/>
+                </div>
+                <div class="course-tab">
+                    <md-card ng-init="selected = 0">
+                        <md-steppers md-dynamic-height md-border-bottom  md-selected="selected" md-stretch-steppers="always">
+                            <md-step label="Calculator " md-complete="step1.completed">
+                                <div class="md-padding" layout="column">
+                                    <form name="nextForm">
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <div class="md-headline"> <h3>TRIP TYPE</h3></div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div layout="column">
+                                                    <md-radio-group ng-model="data.tripType">
+                                                        <md-content layout-padding="" ng-cloak="" class="datepickerdemoBasicUsage">
+                                                            <md-radio-button class="md-primary" name="tripType" id="singleTrip" ng-value="'SINGLE_TRIP'">Single Trip</md-radio-button>
+                                                            <div data-ng-if="data.tripType === 'SINGLE_TRIP'" layout="column" layout-align="center" layout-padding>
+                                                                <div layout="row" layout-align="start">
+                                                                    <md-input-container flex="50">
+                                                                        <label>From:</label>
+                                                                        <md-datepicker name="from"
+                                                                                       ng-model="data.tripData.from"
+                                                                                       md-placeholder="Enter date"
+                                                                                       md-max-date="data.tripData.to"
+                                                                                       ng-required="true"></md-datepicker>
+                                                                        <div ng-messages="nextForm.from.$error" role="alert" class="form-errors first-name-error">
+                                                                            <div ng-message="required">Field is required.</div>
+                                                                            <div ng-message="valid">The entered value is not a date!</div>
+                                                                            <div ng-message="maxdate">Date is too late!</div>
+                                                                        </div>
+                                                                    </md-input-container>
+                                                                    <md-input-container flex="50">
+                                                                        <label>To:</label>
+                                                                        <md-datepicker name="to"
+                                                                                       ng-model="data.tripData.to"
+                                                                                       md-placeholder="Enter date"
+                                                                                       md-min-date="data.tripData.from"
+                                                                                       ng-required="true"></md-datepicker>
+                                                                        <div ng-messages="nextForm.to.$error" role="alert" class="form-errors first-name-error">
+                                                                            <div ng-message="required">Field is required.</div>
+                                                                            <div ng-message="valid">The entered value is not a date!</div>
+                                                                            <div ng-message="mindate">Date is too early!</div>
+                                                                        </div>
+                                                                    </md-input-container>
+                                                                </div>
+                                                            </div>
+                                                        </md-content>
+                                                        <md-content layout-padding="" ng-cloak="" class="datepickerdemoBasicUsage">
+                                                            <md-radio-button class="md-primary" name="tripType" id="oneYearTrip" ng-value="'ONE_YEAR'">One Year</md-radio-button>
+                                                            <div data-ng-if="data.tripType === 'ONE_YEAR'" layout="column" layout-align="center" layout-padding>
+                                                                <div layout="row" layout-align="start" flex="100">
+                                                                    <md-input-container flex="50">
+                                                                        <label>Period:</label>
+                                                                        <md-select name="period"
+                                                                                   ng-model="data.tripData.period"
+                                                                                   md-placeholder="Enter period"
+                                                                                   ng-required="true">
+                                                                            <md-option value="30to1">Up to 30 days
+                                                                                for 1 year</md-option>
+                                                                            <md-option value="60to1">Up to 60 days
+                                                                                for 1 year</md-option>
+                                                                            <md-option value="90to1">Up to 90 days
+                                                                                for 1 year</md-option>
+                                                                        </md-select>
+                                                                        <div ng-messages="nextForm.period.$error" role="alert" class="form-errors first-name-error">
+                                                                            <div ng-message="required">Field is required.</div>
+                                                                        </div>
+                                                                    </md-input-container>
+                                                                    <md-input-container flex="50">
+                                                                        <label>Start Date:</label>
+                                                                        <md-datepicker name="startDate"
+                                                                                       ng-model="data.tripData.startDate"
+                                                                                       md-placeholder="Enter date"
+                                                                                       ng-required="true"></md-datepicker>
+                                                                        <div ng-messages="nextForm.startDate.$error" role="alert" class="form-errors first-name-error">
+                                                                            <div ng-message="required">Field is required.</div>
+                                                                        </div>
+                                                                    </md-input-container>
+                                                                </div>
+                                                            </div>
+                                                        </md-content>
+                                                    </md-radio-group>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <div class="md-headline">
+                                                        <h3>ABOUT INSURED PERSONS</h3>
+                                                    </div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div layout="column">
+                                                    <md-content layout-padding="" ng-cloak="" class="datepickerdemoBasicUsage">
+                                                        <div layout="column" layout-align="start" flex="100">
+                                                            <md-input-container>
+                                                                <label>Purpose of the Trip:</label>
+                                                                <md-select name="purpose" ng-model="data.purpose" required>
+                                                                    <md-option value="TOURISM">Toursim</md-option>
+                                                                    <md-option value="VISIT">Visit</md-option>
+                                                                    <md-option value="BUSINESS_MEETINGS">Business meetingsr</md-option>
+                                                                    <md-option value="TRAINING_SPECIALIZATION_QUALIFICATION">Training, Specialization, Qualification</md-option>
+                                                                    <md-option value="SPORT_AND_WORK_I_RISK_CLASS">Sport and Work, I Risk Class</md-option>
+                                                                    <md-option value="SPORT_AND_WORK_II_RISK_CLASS">Sport and Work, II Risk Class</md-option>
+                                                                    <md-option value="SPORT_AND_WORK_III_RISK_CLASS">Sport and Work, III Risk Class</md-option>
+                                                                    <md-option value="SPORT_AND_WORK_IV_RISK_CLASS">Sport and Work, IV Risk Class</md-option>
+                                                                </md-select>
+                                                            </md-input-container>
+                                                        </div>
+                                                    </md-content>
+                                                    <md-content layout-padding="" ng-cloak="" class="datepickerdemoBasicUsage">
+                                                        <div layout="column" layout-align="start">
+                                                            <md-input-container>
+                                                                <label>Destionation:</label>
+                                                                <md-select name="destination" ng-model="data.destination" required>
+                                                                    <md-option value="europe">Europe</md-option>
+                                                                    <md-option value="asia">Asia</md-option>
+                                                                    <md-option value="northAmerica">North America</md-option>
+                                                                    <md-option value="southAmerica">South America</md-option>
+                                                                </md-select>
+                                                            </md-input-container>
+                                                        </div>
+                                                    </md-content>
+                                                    <div layout="column">
+                                                        <md-radio-group ng-model="data.groupType">
+                                                            <md-content layout-padding="" ng-cloak="" class="datepickerdemoBasicUsage">
+                                                                <md-radio-button class="md-primary" name="groupType" id="singlePerson" ng-value="'SINGLE_PERSON'">Single Person</md-radio-button>
+                                                                <div data-ng-if="data.groupType === 'SINGLE_PERSON'" layout="column" layout-align="center" layout-padding>
+                                                                    <div layout="column" layout-align="start">
+                                                                        <md-input-container>
+                                                                            <label>Age:</label>
+                                                                            <input type="number" min="0" name="age" ng-model="data.groupData.age" ng-required="true" >
+                                                                        </md-input-container>
+                                                                    </div>
+                                                                </div>
+                                                            </md-content>
+                                                            <md-content layout-padding="" ng-cloak="" class="datepickerdemoBasicUsage">
+                                                                <md-radio-button class="md-primary" name="groupType" id="group" ng-value="'GROUP'">Group</md-radio-button>
+                                                                <div data-ng-if="data.groupType === 'GROUP'" layout="column" layout-align="center" layout-padding>
+                                                                    <div layout="column" layout-align="start">
+                                                                        <md-input-container>
+                                                                            <label>Children (0 - 12 years):</label>
+                                                                            <input type="number" min="0" ng-init="data.groupData.children=0" name="children" ng-model="data.groupData.children" value="0" ng-required="true" >
+                                                                        </md-input-container>
+                                                                        <md-input-container>
+                                                                            <label>Adults (13 - 64 years):</label>
+                                                                            <input type="number" min="0" ng-init="data.groupData.adults=0" name="adults" ng-model="data.groupData.adults" value="0" ng-required="true" >
+                                                                        </md-input-container>
+                                                                        <md-input-container>
+                                                                            <label>Adults (13 - 64 years):</label>
+                                                                            <input type="number" min="0" ng-init="data.groupData.youngSeniors=0" name="youngSeniors" ng-model="data.groupData.youngSeniors" value="0" ng-required="true" >
+                                                                        </md-input-container>
+                                                                        <md-input-container>
+                                                                            <label>Age (68 - 70 years):</label>
+                                                                            <input type="number" min="0" ng-init="data.groupData.middleSeniors=0" name="middleSeniors" ng-model="data.groupData.middleSeniors" value="0" ng-required="true" >
+                                                                        </md-input-container>
+                                                                        <md-input-container>
+                                                                            <label>Age (71 - 79 years):</label>
+                                                                            <input type="number" min="0" ng-init="data.groupData.oldSeniors=0" name="oldSeniors" ng-model="data.groupData.oldSeniors" value="0" ng-required="true" >
+                                                                        </md-input-container>
+                                                                    </div>
+                                                                </div>
+                                                            </md-content>
+                                                        </md-radio-group>
+                                                    </div>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <div class="md-headline">
+                                                        <h3>BASIC COVER OF INSURANCE</h3>
+                                                    </div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div layout="column" layout-align="start">
+                                                    <div name="basicCoverForm" layout="column">
+                                                        <md-input-container>
+                                                            <label>EUR:</label>
+                                                            <input type="number" min="0" ng-init="data.insuranceAmount=0" name="eur" ng-model="data.insuranceAmount" value="0" ng-required="true" >
+                                                        </md-input-container>
+                                                    </div>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <div class="md-headline">
+                                                        <h3>ADDITIONAL COVERS</h3>
+                                                    </div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div layout="column" layout-align="start">
+                                                    <div>
+                                                        <md-checkbox name="changeOfStayExpenses" ng-value="'1'" md-no-ink aria-label="Checkbox No Ink" ng-model="data.changeOfStayExpenses" class="md-primary">
+                                                            Change Of Stay Expenses
+                                                        </md-checkbox>
+                                                    </div>
+                                                    <div>
+                                                        <md-checkbox name="legalAidAbroad" ng-value="'2'" md-no-ink aria-label="Checkbox No Ink" ng-model="data.legalAidAbroad" class="md-primary">
+                                                            Legal Aid Abroad
+                                                        </md-checkbox>
+                                                    </div>
+                                                    <div>
+                                                        <md-checkbox name="personalResponsibility" ng-value="'3'" md-no-ink aria-label="Checkbox No Ink" ng-model="data.personalResponsibility" class="md-primary">
+                                                            Personal Responsibility
+                                                        </md-checkbox>
+                                                    </div>
+                                                    <div>
+                                                        <md-checkbox name="reliableWallet" ng-value="'4'" md-no-ink aria-label="Checkbox No Ink" ng-model="data.reliableWallet" class="md-primary">
+                                                            Reliable Wallet
+                                                        </md-checkbox>
+                                                    </div>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                        <md-card class="md-padding" layout-padding>
+                                            <md-card-content>
+                                                <md-button class="md-raised md-primary" ng-click="selected = 1; step1.completed=true" ng-disabled="nextForm.$invalid">NEXT</md-button>
+                                            </md-card-content>
+                                        </md-card>
+                                    </form>
+                                </div>
+                            </md-step>
+                            <md-step label="Offer" md-complete="step2.completed">
+                                <div class="md-padding" layout="column">
+                                    <form name="offerForm">
+                                        <md-card md-theme-watch>
+                                            <md-card-title class="md-padding">
+                                                <md-card-title-media class="md-padding">
+                                                    <div class="md-media-lg card-media">
+                                                        <img ng-src="images/comp_logo.png" class="md-card-image" alt="Washed Out">
+                                                    </div>
+                                                </md-card-title-media>
+                                                <md-card-title-text class="md-padding">
+                                                    <div class="curriculum-table">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th class="text-center">Company name</th>
+                                                                    <th class="text-center">Price</th>
+                                                                    <th class="text-center">Reward VRN Tokens</th>
+                                                                    <th class="text-center">Insurance details</th>
+                                                                    <th class="text-center">Select</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-center"><span>Company 1</span></td>
+                                                                    <td class="text-center">€1 000</td>
+
+                                                                    <td class="text-center">{{formatNumber((1000*0.3)/0.18)}}
+                                                                    <td class="text-center"><span><a style="cursor: pointer" ng-click="viewPdf(data)"
+                                                                                                     class="btn btn-primary">Preview</a></span>
+                                                                    </td>
+                                                                    <td class="text-center">
+                                                                    <span>
+                                                                        <input class="form-control" type="radio"
+                                                                               value="Company 1"
+                                                                               ng-model="data.broker"
+                                                                               ng-click="setTokens(1000)"
+                                                                               style="padding: 10px" name="broker" required>
+                                                                    </span>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                        </md-card>
+                                        <md-card md-theme-watch>
+                                            <md-card-title class="md-padding">
+                                                <md-card-title-media class="md-padding">
+                                                    <div class="md-media-lg card-media">
+                                                        <img ng-src="images/comp_logo.png" class="md-card-image" alt="Washed Out">
+                                                    </div>
+                                                </md-card-title-media>
+                                                <md-card-title-text class="md-padding">
+                                                    <div class="curriculum-table">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th class="text-center">Company name</th>
+                                                                    <th class="text-center">Price</th>
+                                                                    <th class="text-center">Reward VRN Tokens</th>
+                                                                    <th class="text-center">Insurance details</th>
+                                                                    <th class="text-center">Select</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-center"><span>Company 2</span></td>
+                                                                    <td class="text-center">€2 000</td>
+
+                                                                    <td class="text-center">{{formatNumber((2000*0.3)/0.18)}}
+                                                                    </td>
+                                                                    <td class="text-center"><span><a style="cursor: pointer" ng-click="viewPdf(data)"
+                                                                                                     class="btn btn-primary">Preview</a></span>
+                                                                    </td>
+                                                                    <td class="text-center">
+                                                                    <span>
+                                                                        <input class="form-control" type="radio"
+                                                                               value="Company 2"
+                                                                               ng-click="setTokens(2000)"
+                                                                               ng-model="data.broker"
+                                                                               style="padding: 10px" name="broker" required>
+                                                                    </span>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                        </md-card>
+                                        <md-card md-theme-watch>
+                                            <md-card-title class="md-padding">
+                                                <md-card-title-media class="md-padding">
+                                                    <div class="md-media-lg card-media">
+                                                        <img ng-src="images/comp_logo.png" class="md-card-image" alt="Washed Out">
+                                                    </div>
+                                                </md-card-title-media>
+                                                <md-card-title-text class="md-padding">
+                                                    <div class="curriculum-table">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th class="text-center">Company name</th>
+                                                                    <th class="text-center">Price</th>
+                                                                    <th class="text-center">Reward VRN Tokens</th>
+                                                                    <th class="text-center">Insurance details</th>
+                                                                    <th class="text-center">Select</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-center"><span>Company 3</span></td>
+                                                                    <td class="text-center">€3 000</td>
+
+                                                                    <td class="text-center">{{(3000*0.3)/0.18}}
+                                                                    </td>
+                                                                    <td class="text-center"><span><a style="cursor: pointer" ng-click="viewPdf(data)"
+                                                                                                     class="btn btn-primary">Preview</a></span>
+                                                                    </td>
+                                                                    <td class="text-center">
+                                                                    <span>
+                                                                        <input class="form-control" type="radio"
+                                                                               value="Company 3"
+                                                                               ng-click="setTokens(3000)"
+                                                                               ng-model="data.broker"
+                                                                               style="padding: 10px" name="broker" required>
+                                                                    </span>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                        </md-card>
+                                        <md-card>
+                                            <md-card-content>
+                                                <md-button class="md-raised md-primary" ng-click="selected = 0">PREV</md-button>
+                                                <md-button class="md-raised md-primary" ng-click="selected = 2; step2.completed=true" ng-disabled="offerForm.$invalid">NEXT</md-button></md-card-content>
+                                        </md-card>
+                                </form>
+                                </div>
+                            </md-step>
+                            <md-step label="Blockchain Data" md-complete="step3.completed">
+                                <div class="md-padding" layout="column">
+                                    <form>
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <div class="md-headline"><h3>Why Blockchain?</h3></div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div layout="column">
+                                                    <p>Arguably the most significant development in information technology over the past
+                                                        few years, blockchain has the potential to change the way that the world
+                                                        approaches big data, with enhanced security and data quality just two of the
+                                                        benefits afforded to businesses using Satoshi Nakamoto’s landmark
+                                                        technology.</p>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <div class="md-headline"><h3>What Happens with User Information?</h3></div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div layout="column">
+                                                    <p>The combination of cryptographic hashing and blockchain technology makes the
+                                                        information
+                                                        about all the products user bought to be uploaded to a public blockchain module,
+                                                        respecting the rights for storing personal data.
+                                                    </p>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                        <md-card class="md-padding" layout-padding>
+                                            <md-card-content>
+                                                <md-button class="md-raised md-primary" ng-click="selected = 1">PREV</md-button>
+                                                <md-button class="md-raised md-primary" ng-click="selected = 3; step3.completed = true;">NEXT</md-button>
+                                            </md-card-content>
+                                        </md-card>
+                                    </form>
+                                </div>
+                            </md-step>
+                            <md-step label="Personal Data" md-complete="step4.completed">
+                                <div class="md-padding" layout="column">
+                                    <form name="personalInfoForm">
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <div class="md-headline"><h3>Personal Information</h3></div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div layout="column" layout-align="start">
+                                                    <div name="basicCoverForm" layout="column">
+                                                        <div layout="row" layout-align="start" flex="100">
+                                                            <md-input-container flex="40">
+                                                                <label>Name :</label>
+                                                                <input type="text"
+                                                                       ng-value="userInfo.firstName"
+                                                                       ng-model="data.user.firstName"
+                                                                       id="name"
+                                                                       name="firstName"
+                                                                       ng-required="true">
+                                                                <div ng-messages="personalInfoForm.firstName.$error" role="alert" class="form-errors first-name-error">
+                                                                    <div ng-message="required">Field is required.</div>
+                                                                </div>
+                                                            </md-input-container>
+                                                            <div flex="10"></div>
+                                                            <md-input-container flex="40">
+                                                                <label>Surname :</label>
+                                                                <input type="text"
+                                                                       ng-value="userInfo.lastName"
+                                                                       ng-model="data.user.lastName"
+                                                                       id="surname"
+                                                                       name="lastName"
+                                                                       ng-required="true">
+                                                                <div ng-messages="personalInfoForm.lastName.$error" role="alert" class="form-errors first-name-error">
+                                                                    <div ng-message="required">Field is required.</div>
+                                                                </div>
+                                                            </md-input-container>
+                                                        </div>
+                                                        <div layout="row" layout-align="start" flex="100">
+                                                            <md-input-container flex="40">
+                                                                <label>email :</label>
+                                                                <input type="email"
+                                                                       ng-value="userInfo.email"
+                                                                       ng-model="data.user.email"
+                                                                       id="email"
+                                                                       name="email"
+                                                                       ng-required="true">
+                                                                <div ng-messages="personalInfoForm.email.$error" role="alert" class="form-errors first-name-error">
+                                                                    <div ng-message="required">Field is required.</div>
+                                                                    <div ng-message="email">Email is not valid.</div>
+                                                                </div>
+                                                            </md-input-container>
+                                                            <div flex="10"></div>
+                                                            <md-input-container flex="40">
+                                                                <label>Phone :</label>
+                                                                <input type="text"
+                                                                       ng-value="userInfo.phone"
+                                                                       ng-model="data.user.phone"
+                                                                       id="phone"
+                                                                       name="phone"
+                                                                       ng-required="true"
+                                                                       pattern=".{8,15}">
+                                                                <div ng-messages="personalInfoForm.phone.$error" role="alert" class="form-errors first-name-error">
+                                                                    <div ng-message="required">Field is required.</div>
+                                                                    <div ng-message="pattern">Must be between 8-15 symbols.</div>
+                                                                </div>
+                                                            </md-input-container>
+                                                        </div>
+                                                        <div layout="row" layout-align="start" flex="100">
+                                                            <md-input-container flex="90">
+                                                                <label>Address :</label>
+                                                                <input type="text"
+                                                                       ng-value="userInfo.address"
+                                                                       ng-model="data.user.address"
+                                                                       id="address"
+                                                                       name="address"
+                                                                       ng-required="true" >
+                                                                <div ng-messages="personalInfoForm.address.$error" role="alert" class="form-errors first-name-error">
+                                                                    <div ng-message="required">Field is required.</div>
+                                                                </div>
+                                                            </md-input-container>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                        <md-card class="md-padding" layout-padding>
+                                            <md-card-content>
+                                                <md-button class="md-raised md-primary" ng-click="selected = 2">PREV</md-button>
+                                                <md-button class="md-raised md-primary" ng-click="selected = 4; step4.completed=true" ng-disabled="personalInfoForm.$invalid">NEXT</md-button>
+                                            </md-card-content>
+                                        </md-card>
+                                    </form>
+                                </div>
+                            </md-step>
+                            <md-step label="Payment" md-complete="step5.completed">
+                                <div class="md-padding" layout="column">
+                                    <form name="payment">
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <div class="md-headline"><h3>Payment</h3></div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div layout="column">
+                                                    <md-radio-group ng-model="data.payment">
+                                                        <md-content layout-padding="" ng-cloak="" class="datepickerdemoBasicUsage">
+                                                            <md-radio-button class="md-primary" name="payment" id="paypal" ng-value="'CREDIT_CARD'">Credit Card</md-radio-button>
+                                                            <div data-ng-if="data.payment === 'CREDIT_CARD'" layout="column" layout-align="center" layout-padding>
+                                                                <div layout="row" layout-align="start">
+                                                                    <md-input-container flex="40">
+                                                                        <label>Credit Card Number :</label>
+                                                                        <input type="text"
+                                                                               name="creditCardNumber"
+                                                                               class="form-control"
+                                                                               ng-model="data.creaditCardData.creditCardNumber"
+                                                                               placeholder="5524929973845247"
+                                                                               disabled>
+                                                                    </md-input-container>
+                                                                    <div flex="10"></div>
+                                                                    <md-input-container flex="30">
+                                                                        <label>Expiration Date :</label>
+                                                                        <md-datepicker name="expirationDate"
+                                                                                       ng-model="data.creaditCardData.expirationDate"
+                                                                                       md-placeholder="Expiration Date"
+                                                                                       required></md-datepicker>
+                                                                    </md-input-container>
+                                                                </div>
+                                                                <div layout="row" layout-align="start">
+                                                                    <md-input-container flex="40">
+                                                                        <label>Security Code :</label>
+                                                                        <input type="text"
+                                                                               name="securityCode"
+                                                                               class="form-control"
+                                                                               ng-model="data.creaditCardData.securityCode"
+                                                                               placeholder="732"
+                                                                               disabled>
+                                                                    </md-input-container>
+                                                                </div>
+                                                            </div>
+                                                        </md-content>
+                                                        <md-content layout-padding="" ng-cloak="" class="datepickerdemoBasicUsage">
+                                                            <md-radio-button class="md-primary" name="payment" id="paypal" ng-value="'PAYPAL'">Paypal</md-radio-button>
+                                                            <div data-ng-if="data.payment === 'PAYPAL'" layout="column" layout-align="center" layout-padding>
+                                                                <div layout="row" layout-align="start" flex="100">
+
+                                                                </div>
+                                                            </div>
+                                                        </md-content>
+                                                    </md-radio-group>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <div class="md-headline"><h3>Personal Information</h3></div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div layout="column" layout-align="start">
+                                                    <div name="basicCoverForm" layout="column">
+                                                        <div layout="row" layout-align="start" flex="100">
+                                                            <md-input-container flex="40">
+                                                                <label>Name :</label>
+                                                                <input type="text"
+                                                                       ng-value="userInfo.firstName"
+                                                                       ng-model="data.user.firstName"
+                                                                       name="firstName"
+                                                                       ng-required="true"
+                                                                       disabled>
+                                                                <div ng-messages="personalInfoForm.firstName.$error" role="alert" class="form-errors first-name-error">
+                                                                    <div ng-message="required">Field is required.</div>
+                                                                </div>
+                                                            </md-input-container>
+                                                            <div flex="10"></div>
+                                                            <md-input-container flex="40">
+                                                                <label>Surname :</label>
+                                                                <input type="text"
+                                                                       ng-value="userInfo.lastName"
+                                                                       ng-model="data.user.lastName"
+                                                                       name="lastName"
+                                                                       ng-required="true"
+                                                                       disabled>
+                                                                <div ng-messages="personalInfoForm.lastName.$error" role="alert" class="form-errors first-name-error">
+                                                                    <div ng-message="required">Field is required.</div>
+                                                                </div>
+                                                            </md-input-container>
+                                                        </div>
+                                                        <div layout="row" layout-align="start" flex="100">
+                                                            <md-input-container flex="40">
+                                                                <label>email :</label>
+                                                                <input type="email"
+                                                                       ng-value="userInfo.email"
+                                                                       ng-model="data.user.email"
+                                                                       name="email"
+                                                                       ng-required="true"
+                                                                       disabled>
+                                                                <div ng-messages="personalInfoForm.email.$error" role="alert" class="form-errors first-name-error">
+                                                                    <div ng-message="required">Field is required.</div>
+                                                                    <div ng-message="email">Email is not valid.</div>
+                                                                </div>
+                                                            </md-input-container>
+                                                            <div flex="10"></div>
+                                                            <md-input-container flex="40">
+                                                                <label>Phone :</label>
+                                                                <input type="text"
+                                                                       ng-value="userInfo.phone"
+                                                                       ng-model="data.user.phone"
+                                                                       name="phone"
+                                                                       ng-required="true"
+                                                                       pattern=".{8,15}"
+                                                                       disabled>
+                                                                <div ng-messages="personalInfoForm.phone.$error" role="alert" class="form-errors first-name-error">
+                                                                    <div ng-message="required">Field is required.</div>
+                                                                    <div ng-message="pattern">Must be between 8-15 symbols.</div>
+                                                                </div>
+                                                            </md-input-container>
+                                                        </div>
+                                                        <div layout="row" layout-align="start" flex="100">
+                                                            <md-input-container flex="90">
+                                                                <label>Address :</label>
+                                                                <input type="text"
+                                                                       ng-value="userInfo.address"
+                                                                       ng-model="data.user.address"
+                                                                       name="address"
+                                                                       ng-required="true"
+                                                                       disabled>
+                                                                <div ng-messages="personalInfoForm.address.$error" role="alert" class="form-errors first-name-error">
+                                                                    <div ng-message="required">Field is required.</div>
+                                                                </div>
+                                                            </md-input-container>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                        <md-card class="md-padding" layout-padding>
+                                            <md-card-content>
+                                                <md-button class="md-raised md-primary" ng-click="selected = 3">PREV</md-button>
+                                                <md-button class="md-raised md-primary" ng-click="selected = 5; step5.completed=true" ng-disabled="payment.$invalid">NEXT</md-button>
+                                            </md-card-content>
+                                        </md-card>
+                                    </form>
+                                </div>
+                            </md-step>
+                            <md-step label="Done" md-complete="step6.completed">
+                                <div class="md-padding" layout="column">
+                                    <form>
+                                        <md-card>
+                                            <md-card-title>
+                                                <md-card-title-text>
+                                                    <div class="md-headline"><h3>DONE</h3></div>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div layout="column">
+                                                    <p>At non sociosqu ultrices gravida sem a ut netus iaculis, dictum curae
+                                                        senectus mattis sapien aliquet turpis consequat mi vel, tortor amet
+                                                        tristique maecenas rutrum interdum faucibus cras conubia ut euismod orci
+                                                        nisi metus scelerisque bibendum metus, eget magna ultricies ut bibendum
+                                                        maecenas pellentesque id rutrum, praesent habitant varius interdum tellus
+                                                        donec porta bibendum augue venenatis suspendisse dictum vivamus molestie,
+                                                        neque sapien quam eu felis eleifend, a risus dapibus ullamcorper pharetra
+                                                        class gravida tempus elit aliquam eleifend porttitor facilisis etiam
+                                                        curabitur, hac non cras nulla euismod aenean tempor litora.</p>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                        <md-card class="md-padding" layout-padding>
+                                            <md-card-content>
+                                                <md-button class="md-raised md-primary" ng-click="requestPayment()"
+                                                           ng-disabled="!(step1.completed&&step2.completed&&step3.completed&&step4.completed&&step5.completed)">Done</md-button>
+                                            </md-card-content>
+                                        </md-card>
+                                    </form>
+                                </div>
+                            </md-step>
+                        </md-steppers>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:768px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Policy</h4>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center;" id="modal-goes-here">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

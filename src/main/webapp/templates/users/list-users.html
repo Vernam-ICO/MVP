@@ -1,0 +1,37 @@
+<div ng-include="'templates/partials/banner.html'"></div>
+<div class="container">
+    <div class="curriculum-table teacher-course-table">
+        <div class="title inner-page-title">
+            <h3>All MVP Users - Total: {{users.totalElements}}</h3>
+        </div>
+        <div class="table-responsive">
+            <table class="table-responsive tableGrid">
+                <tbody>
+                <tr>
+                    <th>#</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Tokens</th>
+                    <th>Actions</th>
+                </tr>
+                <tr ng-repeat="user in users.content track by $index">
+                    <td><strong>{{$index + 1 + users.number*users.size}}</strong></td>
+                    <td><strong>{{user.email}}</strong></td>
+                    <td><strong>{{user.firstName}}</strong></td>
+                    <td><strong>{{user.lastName}}</strong></td>
+                    <td><strong>{{user.tokens}}</strong></td>
+                    <td>
+                        <strong><a class="btn btn-warning" style="cursor: pointer" ng-click="showAdvanced($event, user)">Edit</a></strong>
+                        <strong><a class="btn btn-danger" style="cursor: pointer" ng-click="showConfirm($event, user)">Delete</a></strong>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <ul class="pagination">
+                <li ng-disabled="users.first"><a ng-disabled="users.first" style="cursor: pointer;" ng-click="checkPrev(users.first ,users.number)"><span>Previous</span></a></li>
+                <li ng-disabled="users.first"><a ng-disabled="users.last" style="cursor: pointer;" ng-click="checkNext(users.last ,users.number)"><span>Next</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>

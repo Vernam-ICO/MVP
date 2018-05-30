@@ -1,0 +1,55 @@
+<div ng-include="'templates/partials/banner.html'"></div>
+
+<div class="inner-page login-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                <div class="login-form">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="navbar-brand">
+                            <h1 class="site-title"><a href="#"  rel="home"> <img ng-src="images/logo-color-small.png" alt="logo"> VERNAM</a></h1>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <input type="email" placeholder=" type your email" ng-model="userData.email">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <input type="password" placeholder=" Password" ng-model="userData.password">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <input type="text" placeholder=" First Name" ng-model="userData.firstName">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <input type="text" placeholder=" last name" ng-model="userData.lastName">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <input type="text" placeholder=" phone" ng-model="userData.phone">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <input type="text" placeholder=" Address" ng-model="userData.address">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <button type="submit" class="login-btn btn" ng-click="register(userData)">Register now</button>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="doyou">
+                            <span>Do you have an account ?</span><span><a href="#/login">login</a> here</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

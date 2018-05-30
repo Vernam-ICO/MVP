@@ -1,0 +1,853 @@
+<div ng-include="'templates/partials/banner.html'"></div>
+<section class="course-details-page inner-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8">
+                <div class="course-details-page-div">
+                    <div class="course-dtails-page-img">
+                        <img ng-src="images/white.jpg" class="img-responsive"
+                             style="background-image: url('https://mdbootstrap.com/img/Photos/Slides/img%20(134).jpg');"/>
+                    </div>
+                    <div class="course-tab">
+                        <ul class="nav nav-tabs" role="tablist" ng-init="tab = 1">
+                            <li ng-class="{active:tab===1}" role="presentation">
+                                <a href ng-click="tab = 1" data-target="#description" aria-controls="description"
+                                   role="tab"
+                                   data-toggle="tab">Calculator</a></li>
+                            <li ng-class="{active:tab===2}" role="presentation">
+                                <a href ng-click="tab = 2" data-target="#curriculum" aria-controls="curriculum"
+                                   role="tab"
+                                   data-toggle="tab">Offer</a></li>
+                            <li ng-class="{active:tab===3}" role="presentation">
+                                <a href ng-click="tab = 3" data-target="#blockchain-data"
+                                   aria-controls="blockchain-data"
+                                   role="tab"
+                                   data-toggle="tag">Blockchain Data</a></li>
+                            <li ng-class="{active:tab===4}" role="presentation">
+                                <a href ng-click="tab = 4" aria-controls="review" role="tab"
+                                   data-toggle="tab">Personal Data</a></li>
+                            <li ng-class="{active:tab===5}" role="presentation">
+                                <a href ng-click="tab = 5" aria-controls="review" role="tab"
+                                   data-toggle="tab">Payment</a></li>
+                            <li ng-class="{active:tab===6}" role="presentation">
+                                <a href ng-click="tab = 6" aria-controls="done" role="tab"
+                                   data-toggle="tab">DONE</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content recent-events">
+                            <div ng-class="{active:tab===1}" ng-show="tab === 1" class="tab-pane" id="description">
+                                <div class="course-tab-desc">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="comment-form recent-events">
+                                                    <div class="comment-form recent-events">
+                                                        <form>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group" comment-form recent-events>
+                                                                        <div class="title inner-page-title">
+                                                                            <h3>TRIP TYPE</h3>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <md-radio-group ng-model="data.tripType">
+                                                                                <md-radio-button class="md-primary" name="tripType" id="singleTrip" ng-value="'SINGLE_TRIP'">Single Trip</md-radio-button>
+                                                                                <md-radio-button class="md-primary" name="tripType" id="oneYearTrip" ng-value="'ONE_YEAR'">One Year</md-radio-button>
+                                                                            </md-radio-group>
+                                                                        </div>
+                                                                        <div class="form-group"
+                                                                             data-ng-if="data.tripType === 'SINGLE_TRIP'">
+                                                                            <div class="form-group">
+                                                                                <label>From *</label>
+                                                                                <input class="form-control" type="date"
+                                                                                       ng-model="data.tripData.from"
+                                                                                       class="form-control" id="from"/>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label>To *</label>
+                                                                                <input class="form-control" type="date"
+                                                                                       ng-model="data.tripData.to"
+                                                                                       class="form-control" id="to"/>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group"
+                                                                             data-ng-if="data.tripType === 'ONE_YEAR'">
+                                                                            <div class="form-group">
+                                                                                <label for="period">Period</label>
+                                                                                <select class="form-control"
+                                                                                        ng-model="data.tripData.period"
+                                                                                        name="period" id="period">
+                                                                                    <option value="30to1">Up to 30 days
+                                                                                        for 1 year
+                                                                                    </option>
+                                                                                    <option value="60to1">Up to 60 days
+                                                                                        for 1 year
+                                                                                    </option>
+                                                                                    <option value="90to1">Up to 90 days
+                                                                                        for 1 year
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="startDate">Start
+                                                                                    date</label>
+                                                                                <input class="form-control" type="text"
+                                                                                       ng-model="data.tripData.period"
+                                                                                       class="form-control"
+                                                                                       id="startDate"/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group" comment-form recent-events>
+                                                                        <div class="title inner-page-title">
+                                                                            <h3>ABOUT INSURED PERSONS</h3>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="purpose">Purpose of the
+                                                                                trip</label>
+                                                                            <select class="form-control" name="purpose"
+                                                                                    ng-model="data.purpose"
+                                                                                    id="purpose">
+                                                                                <option value="TOURISM">Toursim</option>
+                                                                                <option value="SKIING_OR_SNOWBOARDING">
+                                                                                    Skiing or snowboarding
+                                                                                </option>
+                                                                                <option value="VISIT">Visit</option>
+                                                                                <option value="BUSINESS_MEETINGS">
+                                                                                    Business meetings
+                                                                                </option>
+                                                                                <option value="TRAINING_SPECIALIZATION_QUALIFICATION">
+                                                                                    Training,
+                                                                                    specialization, qualification
+                                                                                </option>
+                                                                                <option value="SPORT_AND_WORK_I_RISK_CLASS">
+                                                                                    Sport
+                                                                                    and work, I risk class
+                                                                                </option>
+                                                                                <option value="SPORT_AND_WORK_II_RISK_CLASS">
+                                                                                    Sport
+                                                                                    and work, II risk class
+                                                                                </option>
+                                                                                <option value="SPORT_AND_WORK_III_RISK_CLASS">
+                                                                                    Sport and work, III risk class
+                                                                                </option>
+                                                                                <option value="SPORT_AND_WORK_IV_RISK_CLASS">
+                                                                                    Sport
+                                                                                    and work, IV risk class
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="destination">Destionation</label>
+                                                                            <select class="form-control"
+                                                                                    ng-model="data.destination"
+                                                                                    name="destination" id="destination">
+                                                                                <option value="europe">Europe</option>
+                                                                                <option value="asia">Asia</option>
+                                                                                <option value="northAmerica">North
+                                                                                    America
+                                                                                </option>
+                                                                                <option value="southAmerica">South
+                                                                                    America
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <div class="form-group">
+                                                                                <md-radio-group ng-model="data.groupType">
+                                                                                    <md-radio-button class="md-primary" name="groupType" id="singlePerson" ng-value="'SINGLE_PERSON'">Single Person</md-radio-button>
+                                                                                    <md-radio-button class="md-primary" name="groupType" id="group" ng-value="'GROUP'">Group</md-radio-button>
+                                                                                </md-radio-group>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div></div>
+                                                                        <div class="form-group"
+                                                                             data-ng-if="data.groupType === 'SINGLE_PERSON'">
+                                                                            <label for="age">Age</label>
+                                                                            <input type="number" min="0" max="99"
+                                                                                   ng-model="data.groupData.age"
+                                                                                   class="form-control" id="age"/>
+                                                                        </div>
+                                                                        <div class="form-group"
+                                                                             data-ng-if="data.groupType === 'GROUP'">
+                                                                            <div class="row form-group">
+                                                                                <div class="col-md-9">
+                                                                                    <input type="number" min="0"
+                                                                                           ng-model="data.groupData.children"
+                                                                                           max="99"/>
+                                                                                </div>
+                                                                                <span style="height: 40px;text-align: center;font-size: 16px;line-height: 35px;"
+                                                                                      class="label label-default col-md-3">Children (0 - 12 years)</span>
+                                                                            </div>
+                                                                            <div class="row form-group">
+                                                                                <div class="col-md-9">
+                                                                                    <input type="number" min="0"
+                                                                                           ng-model="data.groupData.adults"
+                                                                                           max="99"/>
+                                                                                </div>
+                                                                                <span style="height: 40px;text-align: center;font-size: 16px;line-height: 35px;"
+                                                                                      class="label label-default col-md-3">Adults (13 - 64 years)</span>
+                                                                            </div>
+                                                                            <div class="row form-group">
+                                                                                <div class="col-md-9">
+                                                                                    <input type="number" min="0"
+                                                                                           ng-model="data.groupData.youngSeniors"
+                                                                                           max="99"/>
+                                                                                </div>
+                                                                                <span style="height: 40px;text-align: center;font-size: 16px;line-height: 35px;"
+                                                                                      class="label label-default col-md-3">Age (65 - 67 years)</span>
+                                                                            </div>
+                                                                            <div class="row form-group">
+                                                                                <div class="col-md-9">
+                                                                                    <input type="number" min="0"
+                                                                                           ng-model="data.groupData.middleSeniors"
+                                                                                           max="99"/>
+                                                                                </div>
+                                                                                <span style="height: 40px;text-align: center;font-size: 16px;line-height: 35px;"
+                                                                                      class="label label-default col-md-3">Age (68 - 70 years)</span>
+                                                                            </div>
+                                                                            <div class="row form-group">
+                                                                                <div class="col-md-9">
+                                                                                    <input type="number" min="0"
+                                                                                           ng-model="data.groupData.oldSeniors"
+                                                                                           max="99"/>
+                                                                                </div>
+                                                                                <span style="height: 40px;text-align: center;font-size: 16px;line-height: 35px;"
+                                                                                      class="label label-default col-md-3">Age (71 - 79 years)</span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="title inner-page-title">
+                                                                            <h3>BASIC COVER OF INSURANCE</h3>
+                                                                        </div>
+                                                                        <div class="row form-group">
+                                                                            <div class="col-md-10">
+                                                                                <input type="number" min="0"
+                                                                                       ng-model="data.insuranceAmount"/>
+                                                                            </div>
+                                                                            <span style="height: 40px;text-align: center;font-size: 16px;line-height: 35px;"
+                                                                                  class="label label-default col-md-2">EUR</span>
+                                                                        </div>
+
+                                                                        <div class="title inner-page-title">
+                                                                            <h3>ADDITIONAL COVERS</h3>
+                                                                        </div>
+
+                                                                        <div class="form-check">
+                                                                            <md-checkbox md-no-ink aria-label="Checkbox No Ink"
+                                                                                         name="changeOfStayExpenses"
+                                                                                         id="changeOfStayExpenses"
+                                                                                         ng-model="data.changeOfStayExpenses"
+                                                                                         ng-value="'1'"
+                                                                                         class="md-primary">
+                                                                                Change Of Stay Expenses
+                                                                            </md-checkbox>
+                                                                        </div>
+
+                                                                        <div class="form-check">
+                                                                            <md-checkbox md-no-ink aria-label="Checkbox No Ink"
+                                                                                         name="legalAidAbroad"
+                                                                                         id="legalAidAbroad"
+                                                                                         ng-model="data.legalAidAbroad"
+                                                                                         ng-value="'2'"
+                                                                                         class="md-primary">
+                                                                                Legal Aid Abroad
+                                                                            </md-checkbox>
+                                                                        </div>
+
+                                                                        <div class="form-check">
+                                                                            <md-checkbox md-no-ink aria-label="Checkbox No Ink"
+                                                                                         name="personalResponsibility"
+                                                                                         id="personalResponsibility"
+                                                                                         ng-model="data.personalResponsibility"
+                                                                                         ng-value="'3'"
+                                                                                         class="md-primary">
+                                                                                Personal Responsibility
+                                                                            </md-checkbox>
+                                                                        </div>
+
+                                                                        <div class="form-check">
+                                                                            <md-checkbox md-no-ink aria-label="Checkbox No Ink"
+                                                                                         name="reliableWallet"
+                                                                                         id="reliableWallet"
+                                                                                         ng-model="data.reliableWallet"
+                                                                                         ng-value="'4'"
+                                                                                         class="md-primary">
+                                                                                Reliable Wallet
+                                                                            </md-checkbox>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <div class="pull-right">
+                                                                                <div ng-click="clickNext()">
+                                                                                    <a ng-click="tab = 2"
+                                                                                       ui-sref="form.interests"
+                                                                                       class="btn btn-block btn-info">
+                                                                                        Next Section <span
+                                                                                            class="glyphicon glyphicon-circle-arrow-right"></span>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div ng-class="{active:tab===2}" ng-show="tab === 2" class="tab-pane" id="curriculum">
+                                <div class="comment-list">
+                                    <!-- First Comment -->
+                                    <div class="title inner-page-title">
+                                        <h3>Available Offers</h3>
+                                    </div>
+                                    <article class="row">
+                                        <div class="col-md-2 col-sm-2 col-xs-3">
+                                            <img ng-src="images/comp_logo.png" alt="Company"/>
+                                        </div>
+                                        <div class="col-md-10 col-sm-10 col-xs-9">
+                                            <div class="curriculum-table">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th class="text-center">Company name</th>
+                                                            <th class="text-center">Price</th>
+                                                            <th class="text-center">Reward VRN Tokens</th>
+                                                            <th class="text-center">Insurance details</th>
+                                                            <th class="text-center">Select</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center"><span>Company 1</span></td>
+                                                            <td class="text-center">€1 000</td>
+
+                                                            <td class="text-center">{{formatNumber((1000*0.3)/0.18)}}
+                                                            <td class="text-center"><span><a style="cursor: pointer" ng-click="viewPdf(data)"
+                                                                                             class="btn btn-primary">Preview</a></span>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                    <span>
+                                                                        <input class="form-control" type="radio"
+                                                                               value="Company 1"
+                                                                               ng-model="data.broker"
+                                                                               ng-click="setTokens(1000)"
+                                                                               style="padding: 10px" name="broker">
+                                                                    </span>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="row">
+                                        <div class="col-md-2 col-sm-2 col-xs-3">
+                                            <img ng-src="images/comp_logo.png" alt="Company"/>
+                                        </div>
+                                        <div class="col-md-10 col-sm-10 col-xs-9">
+                                            <div class="curriculum-table">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th class="text-center">Company name</th>
+                                                            <th class="text-center">Price</th>
+                                                            <th class="text-center">Reward VRN Tokens</th>
+                                                            <th class="text-center">Insurance details</th>
+                                                            <th class="text-center">Select</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center"><span>Company 2</span></td>
+                                                            <td class="text-center">€2 000</td>
+
+                                                            <td class="text-center">{{formatNumber((2000*0.3)/0.18)}}
+                                                            </td>
+                                                            <td class="text-center"><span><a style="cursor: pointer" ng-click="viewPdf(data)"
+                                                                                             class="btn btn-primary">Preview</a></span>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                    <span>
+                                                                        <input class="form-control" type="radio"
+                                                                               value="Company 2"
+                                                                               ng-click="setTokens(2000)"
+                                                                               ng-model="data.broker"
+                                                                               style="padding: 10px" name="broker">
+                                                                    </span>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="row">
+                                        <div class="col-md-2 col-sm-2 col-xs-3">
+                                            <img ng-src="images/comp_logo.png" alt="Company"/>
+                                        </div>
+                                        <div class="col-md-10 col-sm-10 col-xs-9">
+                                            <div class="curriculum-table">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th class="text-center">Company name</th>
+                                                            <th class="text-center">Price</th>
+                                                            <th class="text-center">Reward VRN Tokens</th>
+                                                            <th class="text-center">Insurance details</th>
+                                                            <th class="text-center">Select</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center"><span>Company 3</span></td>
+                                                            <td class="text-center">€3 000</td>
+
+                                                            <td class="text-center">{{(3000*0.3)/0.18}}
+                                                            </td>
+                                                            <td class="text-center"><span><a style="cursor: pointer" ng-click="viewPdf(data)"
+                                                                                             class="btn btn-primary">Preview</a></span>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                    <span>
+                                                                        <input class="form-control" type="radio"
+                                                                               value="Company 3"
+                                                                               ng-click="setTokens(3000)"
+                                                                               ng-model="data.broker"
+                                                                               style="padding: 10px" name="broker">
+                                                                    </span>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+
+
+
+                                    <article class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div class="pull-left">
+                                                    <a ng-click="tab = 1" ui-sref="form.interests"
+                                                       class="btn btn-block btn-info">
+                                                        <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                                                        Previous Section
+                                                    </a>
+                                                </div>
+                                                <div ng-click="clickNext()" class="pull-right">
+                                                    <a ng-click="tab = 3" ui-sref="form.interests"
+                                                       class="btn btn-block btn-info">
+                                                        Next Section <span
+                                                            class="glyphicon glyphicon-circle-arrow-right"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <div ng-class="{active:tab===3}" ng-show="tab === 3" class="tab-pane" id="blockchain-data">
+                                <div class="comment-list">
+                                    <div class="title inner-page-title">
+                                        <h3>Why Blockchain?</h3>
+                                    </div>
+                                    <p>Arguably the most significant development in information technology over the past
+                                        few years, blockchain has the potential to change the way that the world
+                                        approaches big data, with enhanced security and data quality just two of the
+                                        benefits afforded to businesses using Satoshi Nakamoto’s landmark
+                                        technology.</p>
+                                    <div class="title inner-page-title">
+                                        <h3>What Happens with User Information?</h3>
+                                    </div>
+                                    <p>The combination of cryptographic hashing and blockchain technology makes the
+                                        information
+                                        about all the products user bought to be uploaded to a public blockchain module,
+                                        respecting the rights for storing personal data.
+                                    </p>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group col-md-6">
+                                                <div class="pull-left">
+                                                    <div>
+                                                        <a ng-click="tab = 2" ui-sref="form.interests"
+                                                           class="btn btn-block btn-info">
+                                                            <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                                                            Previous Section
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="pull-right">
+                                                    <div ng-click="clickNext()">
+                                                        <a ng-click="tab = 4" ui-sref="form.interests"
+                                                           class="btn btn-block btn-info">
+                                                            Next Section <span
+                                                                class="glyphicon glyphicon-circle-arrow-right"></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div ng-class="{active:tab===4}" ng-show="tab === 4" class="tab-pane" id="review">
+                                <div class="comment-form recent-events">
+                                    <div class="title inner-page-title">
+                                        <h3>Personal Information</h3>
+                                    </div>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-sm-6 ">
+                                                <div class="form-group">
+                                                    <label>Name :</label>
+                                                    <input type="text" name="firstName" class="form-control"
+                                                           ng-value="userInfo.firstName"
+                                                           ng-model="data.user.firstName"
+                                                           placeholder="First Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Surname :</label>
+                                                    <input type="text" ng-value="userInfo.lastName" name="lastName" class="form-control"
+                                                           ng-model="data.user.lastName"
+                                                           placeholder="Last Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Email :</label>
+                                                    <input type="text" ng-value="userInfo.email" name="email" class="form-control"
+                                                           ng-model="data.user.email"
+                                                           placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Phone :</label>
+                                                    <input type="text" ng-value="userInfo.phone" name="phone" class="form-control"
+                                                           ng-model="data.user.phone"
+                                                           placeholder="Phone Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Address :</label>
+                                                    <textarea  ng-value="userInfo.address" rows="6" name="address" class="form-control"
+                                                              ng-model="data.user.address"
+                                                    ></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="pull-left">
+                                                        <div>
+                                                            <a ng-click="tab = 3" ui-sref="form.interests"
+                                                               class="btn btn-block btn-info">
+                                                                <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                                                                Previous Section
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="pull-right">
+                                                        <div ng-click="clickNext()">
+                                                            <a ng-click="tab = 5" ui-sref="form.interests"
+                                                               class="btn btn-block btn-info">
+                                                                Next Section <span
+                                                                    class="glyphicon glyphicon-circle-arrow-right"></span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div ng-class="{active:tab===5}" ng-show="tab === 5" class="tab-pane" id="payment">
+                                <div class="comment-list">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="comment-form recent-events">
+                                                    <div class="comment-form recent-events">
+                                                        <form>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group" comment-form recent-events>
+                                                                        <div class="title inner-page-title">
+                                                                            <h3>Payment Method</h3>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <md-radio-group ng-model="data.paymentMethod">
+                                                                                <md-radio-button class="md-primary col-lg-3" name="paymentMethod" id="creditCard" ng-value="'CREDIT_CARD'">Credit Card</md-radio-button>
+                                                                                <md-radio-button class="md-primary col-lg-9" name="paymentMethod" id="paypal" ng-value="'PAYPAL'">Paypal</md-radio-button>
+                                                                            </md-radio-group>
+                                                                           <!-- <div class="form-check col-lg-3">
+                                                                                <label>
+                                                                                    <input type="radio"
+                                                                                           name="paymentMethod"
+                                                                                           ng-model="data.paymentMethod"
+                                                                                           id="creditCard"
+                                                                                           ng-value="'CREDIT_CARD'"/>
+                                                                                    <span class="label-text">Credit Card</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check col-lg-9">
+                                                                                <label>
+                                                                                    <input type="radio"
+                                                                                           name="paymentMethod"
+                                                                                           ng-model="data.paymentMethod"
+                                                                                           id="paypal"
+                                                                                           ng-value="'PAYPAL'"/> <span
+                                                                                        class="label-text">Paypal</span>
+                                                                                </label>
+                                                                            </div>-->
+                                                                        </div>
+                                                                        <div class="form-group"
+                                                                             data-ng-if="data.paymentMethod === 'CREDIT_CARD'">
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="form-group">
+                                                                                        <label>Credit Card Number
+                                                                                            :</label>
+                                                                                        <input type="text"
+                                                                                               name="creditCardNumber"
+                                                                                               class="form-control"
+                                                                                               ng-model="data.creaditCardData.creditCardNumber"
+                                                                                               placeholder="5524929973845247"
+                                                                                               disabled>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-3">
+                                                                                    <div class="form-group">
+                                                                                        <label>Security Code :</label>
+                                                                                        <input type="text"
+                                                                                               name="securityCode"
+                                                                                               class="form-control"
+                                                                                               ng-model="data.creaditCardData.securityCode"
+                                                                                               placeholder="732"
+                                                                                               disabled>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="form-group">
+                                                                                        <label>Expiration Date :</label>
+                                                                                        <input type="date"
+                                                                                               name="expirationDate"
+                                                                                               class="form-control"
+                                                                                               ng-model="data.creaditCardData.expirationDate"
+                                                                                               placeholder="Expiration Date">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group"
+                                                                             data-ng-if="data.paymentMethod === 'PAYPAL'">
+                                                                        </div>
+                                                                        <br/>
+                                                                        <br/>
+                                                                        <div class="title inner-page-title">
+                                                                            <h3>User Information</h3>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label>Name :</label>
+                                                                                    <input type="text" name="firstName"
+                                                                                           class="form-control"
+                                                                                           ng-value="data.user.firstName"
+                                                                                           placeholder="First Name"
+                                                                                           disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label>Surname :</label>
+                                                                                    <input type="text" name="lastName"
+                                                                                           class="form-control"
+                                                                                           ng-value="data.user.lastName"
+                                                                                           placeholder="Last Name"
+                                                                                           disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label>Email :</label>
+                                                                                    <input type="text" name="email"
+                                                                                           class="form-control"
+                                                                                           ng-value="data.user.email"
+                                                                                           placeholder="Email" disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label>Phone :</label>
+                                                                                    <input type="text" name="phone"
+                                                                                           class="form-control"
+                                                                                           ng-value="data.user.phone"
+                                                                                           placeholder="Phone Number"
+                                                                                           disabled>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label>Address :</label>
+                                                                                    <textarea rows="6" name="address"
+                                                                                              class="form-control"
+                                                                                              ng-value="data.user.address"
+                                                                                              disabled
+                                                                                    ></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group col-md-6">
+                                                    <div class="pull-left">
+                                                        <div>
+                                                            <a ng-click="tab = 4" ui-sref="form.interests"
+                                                               class="btn btn-block btn-info">
+                                                                <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                                                                Previous Section
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <div class="pull-right">
+                                                        <div ng-click="clickNext()">
+                                                            <a ng-click="tab = 6" ui-sref="form.interests"
+                                                               class="btn btn-block btn-info">
+                                                                Next Section <span
+                                                                    class="glyphicon glyphicon-circle-arrow-right"></span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div ng-class="{active:tab===6}" ng-show="tab === 6" class="tab-pane" id="done">
+                                <div role="tabpanel" class="tab-pane  active show">
+                                    <div class="course-tab-desc">
+                                        <div class="title inner-page-title">
+                                            <h3>DONE</h3>
+                                        </div>
+                                        <p>At non sociosqu ultrices gravida sem a ut netus iaculis, dictum curae
+                                            senectus mattis sapien aliquet turpis consequat mi vel, tortor amet
+                                            tristique maecenas rutrum interdum faucibus cras conubia ut euismod orci
+                                            nisi metus scelerisque bibendum metus, eget magna ultricies ut bibendum
+                                            maecenas pellentesque id rutrum, praesent habitant varius interdum tellus
+                                            donec porta bibendum augue venenatis suspendisse dictum vivamus molestie,
+                                            neque sapien quam eu felis eleifend, a risus dapibus ullamcorper pharetra
+                                            class gravida tempus elit aliquam eleifend porttitor facilisis etiam
+                                            curabitur, hac non cras nulla euismod aenean tempor litora.</p>
+                                        <div class="social-share">
+                                            <a ng-click="requestPayment()"
+                                               class="btn btn-block btn-info">
+                                                Done
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="sidebar">
+                    <div class="sidebar-widget">
+                        <div class="title sidebar-widget-title">
+                            <h3>VERNAM PLATFORM</h3>
+                        </div>
+                        <div class="sidebar-course-carousel owl-carousel owl-theme">
+                            <div class="sidebar-course-item">
+                                <div class="course-img ">
+                                    <img class="img-responsive" ng-src="images/platform.png"/>
+                                </div>
+                                <div class="course-detail ">
+                                    <div class="course-date">
+                                        <p>December 17, 2017</p>
+                                    </div>
+                                    <h3><a href=" " title="Details ">Complet Guied of Business</a></h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt
+                                        mauris id tortor iaculis, ut mollis mi sagittis.</p>
+                                </div>
+                            </div>
+                            <div class="sidebar-course-item">
+                                <div class="course-img ">
+                                    <img class="img-responsive " ng-src="images/token.png"/>
+                                </div>
+                                <div class="course-detail ">
+                                    <div class="course-date">
+                                        <p>December 18, 2017</p>
+                                    </div>
+                                    <h3><a href=" " title="Details ">Learning Ui&Ux Design </a></h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt
+                                        mauris id tortor iaculis, ut mollis mi sagittis.</p>
+                                </div>
+                            </div>
+                            <div class="sidebar-course-item">
+                                <div class="course-img ">
+                                    <img class="img-responsive " ng-src="images/money.png"/>
+                                </div>
+                                <div class="course-detail ">
+                                    <div class="course-date">
+                                        <p>December 18, 2017</p>
+                                    </div>
+                                    <h3><a href=" " title="Details ">Learning Ui&Ux Design </a></h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt
+                                        mauris id tortor iaculis, ut mollis mi sagittis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:768px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Policy</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center;" id="modal-goes-here">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

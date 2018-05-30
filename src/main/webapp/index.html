@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="AppController">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vernam MVP</title>
+
+    <link rel="icon" href="images/logo-color-small.png" type="image/x-icon">
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/xeditable.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/loading.css">
+    <link rel="stylesheet" type="text/css" href="css/md-steppers.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.6/angular-material.min.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#000"
+                    },
+                    "button": {
+                        "background": "#14a7d0"
+                    }
+                },
+                "theme": "edgeless",
+                "content": {
+                    "message": "By continuing to browse our site you agree to our use of cookies. More information about cookies ",
+                    "href": "https://cookiesandyou.com/",
+                    "dismiss": "I agree"
+                }
+            })});
+    </script>
+
+</head>
+
+<body id="body">
+<header ng-include="'templates/partials/header.html'"></header>
+
+<div class="loading page page-loading text-center" data-loading>
+    <img src="images/loading.gif"/>
+</div>
+
+<div data-ng-hide="loading">
+
+</div>
+
+<div ng-view>
+</div>
+<!-- Stat Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="footer-widget">
+                    <h2>Vernam</h2>
+                    <div class="widget-content">
+                        <div class="text">Thanks for your interest in VERNAM. For more information, please contact us.
+                        </div>
+                        <address>
+                            <p><i class="fa fa-map-marker"></i> Sofia, Bulgaria</p>
+                            <p><i class="fa fa-phone"></i>+359 24 72 2633</p>
+                            <p><i class="fa fa-envelope"></i> contact@vernam.com</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-sm-6 col-xs-12">
+                <div class="footer-widget links-widget">
+                    <h2>Explore</h2>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-sm-12">
+                            <ul>
+                                <li><a href="#">home</a></li>
+                                <li><a class="open-popup-link" href="#popup-header">about</a></li>
+                                <li><a href="#!/travel-insurance">Travel Insurance</a></li>
+                                <li><a class="open-popup-link" href="#popup-header">CryptoSafe</a></li>
+                                <li><a class="open-popup-link" href="#popup-header">RoadMap</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-sm-12">
+                            <ul>
+                                <li><a class="open-popup-link" href="#popup-header">Partners</a></li>
+                                <li><a class="open-popup-link" href="#popup-header">Resources</a></li>
+                                <li><a href="#!/privacy-policy">Privacy Policy</a></li>
+                                <li><a class="open-popup-link" href="#popup-header">Vernam</a></li>
+                                <li><a href="#!/contact">contact</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="footer-widget subscribe-widget">
+                    <h2>Newsletter</h2>
+                    <div class="widget-content">
+                        <div class="text">Subscribe to our newsletter to receive exclusive offers and the latest news on our products and services.</div>
+                        <div class="newsletter-form">
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" name="email" value="" placeholder="Email Address..." required>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary button">suscribe now<span
+                                            class="btn-shape"></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+<!--Footer Bottom-->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="text text-left">Copyrights &copy; <a href="https://vernam.com">Vernam</a>. All Rights Reserved</div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <ul class="social-links text-right">
+                    <li><a href="https://www.facebook.com/vernamofficial/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/vernamofficial"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCA8UEt0D3dxJbt945F__A9w"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="https://www.instagram.com/vernamofficial/"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- scroll top -->
+<a class="scroll-top fa fa-angle-up" href="javascript:void(0)"></a>
+<!-- srolltop end -->
+
+<script src="js/angular/angular.js"></script>
+<script src="js/angular/angular-route.js"></script>
+<script src="js/angular/angular-resource.js"></script>
+<script src="js/angular/xeditable.js"></script>
+<script src="angular_js/directives/loading.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-aria.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-messages.min.js"></script>
+
+<!-- AngularJS Material Javascript using GitCDN to load directly from `bower-material/master` -->
+<script src="https://cdn.gitcdn.link/cdn/angular/bower-material/master/angular-material.js"></script>
+<script src='js/md-steppers.js'></script>
+<script src='js/svg-assets-cache.js'></script>
+<!-- Load app libraries -->
+<script src='js/jquery-3.2.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script src='js/ui-bootstrap-0.1.0.min.js'></script>
+<!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>-->
+<script src='js/owl.carousel.min.js'></script>
+<script src='js/isotope.pkgd.min.js'></script>
+<script src='js/jquery.fancybox.min.js'></script>
+<script src='js/jquery.counterup.min.js'></script>
+<script src='js/waypoints.min.js'></script>
+<script src='js/jquery.magnific-popup.min.js'></script>
+<script src='js/jquery.noty.js'></script>
+<!--<script src='js/countdown.js'></script>-->
+<script src='js/wow.min.js'></script>
+<script src='js/script.js'></script>
+<script src="js/angular-ui-bootstrap-modal.js"></script>
+
+<!-- Load app source code: main script, services, controllers, etc. -->
+<script src="angular_js/app.js"></script>
+<script src="angular_js/services/authService.js"></script>
+<script src="angular_js/services/userService.js"></script>
+<script src="angular_js/services/notifyService.js"></script>
+<script src="angular_js/services/purchaseHistoryService.js"></script>
+<script src="angular_js/services/paymentService.js"></script>
+<script src="angular_js/services/mailService.js"></script>
+<script src="angular_js/services/userWalletService.js"></script>
+<script src="angular_js/services/userProfileService.js"></script>
+<script src="angular_js/services/pdfService.js"></script>
+
+<script src="angular_js/controllers/AppController.js"></script>
+<script src="angular_js/controllers/HomeController.js"></script>
+<script src="angular_js/controllers/LoginController.js"></script>
+<script src="angular_js/controllers/RegisterController.js"></script>
+<script src="angular_js/controllers/CalculatorController.js"></script>
+<script src="angular_js/controllers/PurchaseHistoryController.js"></script>
+<script src="angular_js/controllers/ContactController.js"></script>
+<script src="angular_js/controllers/ConstructionController.js"></script>
+<script src="angular_js/controllers/PrivacyPolicyController.js"></script>
+<script src="angular_js/controllers/UserWalletController.js"></script>
+<script src="angular_js/controllers/UserProfileController.js"></script>
+<script src="angular_js/controllers/ThankYouController.js"></script>
+<script src="angular_js/controllers/AdminController.js"></script>
+
+<script type="text/javascript-lazy">
+         loadjscssfile("js/countdown.js", "js");
+</script>
+<div id="test-popup" class="white-popup mfp-hide title sec-title">
+    <p>Only Family Products - Travel Insurance is operational in our Demo Platform</p>
+</div>
+<div id="popup-header" class="white-popup mfp-hide title sec-title">
+    <p>This section is under construction. Only Family Products - Travel Insurance is operational in our Demo Platform.</p>
+</div>
+<div id="popup-user" class="white-popup mfp-hide title sec-title">
+    <p>This is demo platform. No actual transfer will be made. Only your virtual tokens will be reduced by entered amount.</p>
+</div>
+
+</body>
+
+</html>
