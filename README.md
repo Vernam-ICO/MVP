@@ -1,8 +1,8 @@
 # Demo project of the Vernam MVP platform
 
-[![N|Solid](http://unboxico.com/upload/152248931710306_1521900836_001.jpg)](https://www.vernam.org)
+[![N|Solid](http://unboxico.com/upload/152248931710306_1521900836_001.jpg)](http://www.vernam.org)
 
-** Currently, the only working functionality is the travel insurace which can be accessed when you click on the Travel Insurance link in the header.**
+**Currently, the only working functionality is the travel insurace which can be accessed when you click on the Travel Insurance link in the header.**
 
 This is a demo platform and it does not work with real data.
 
